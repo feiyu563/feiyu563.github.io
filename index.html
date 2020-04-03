@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>B£倾.心的博客</title>
+<title>Prometheus Alert 全家桶</title>
 
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" type="text/css" href="css/animate.css" />
@@ -15,17 +15,27 @@
 	<img width="250" class="logo wow bounceInLeft" data-wow-delay="0" src="img/logo-hlb.png" />
 	<div class="cloud1"></div>
 	<div class="cloud2"></div>			
-	<a class="entry_btn" href="https://github.com/feiyu563"> <img src="img/author.png" style="vertical-align: middle; margin-top: -1px;"> my github</a>
 </div>
 <div class="g-mid">
 	<div class="car " data-wow-delay=".1s"></div>
 </div>
 <div class="g-footer">
-	<button class="btn btn-blue wow bounceInDown" data-wow-delay=".8s" onclick="window.location.href='https://github.com/feiyu563/PrometheusAlert'"><img src="img/logo.png" style="vertical-align: middle; margin-top: -1px;width: 30PX;height: 30px;"> Prometheus Alert</button>
-	<button class="btn btn-yellow wow bounceInDown" data-wow-delay="1s"  onclick="window.location.href='https://github.com/feiyu563/nbping'"> Nbping</button>
+	<button class="btn btn-white wow bounceInDown" data-wow-delay=".8s" onclick="window.location.href='https://github.com/feiyu563/PrometheusAlert'"><img src="img/logo.png" style="vertical-align: middle; margin-top: -1px;width: 30PX;height: 30px;"> Docs</button>
 	<div class="copyright wow fadeIn" data-wow-delay="1s">
-		<p></p>
-		<p></p>
+	    <p><img src="https://camo.githubusercontent.com/db02820d08ed4e37995561076cfccf9898c2c16b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f617574686f722d6a696b756e2e7a68616e672d626c756576696f6c65742e737667" alt="author" data-canonical-src="https://img.shields.io/badge/author-jikun.zhang-blueviolet.svg" style="max-width:100%;">  <img src="https://camo.githubusercontent.com/d93aa0f6a3bc63af226dd2c147f03b62f358d2ed/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f66656979753536332f50726f6d657468657573416c6572742e737667" alt="license" data-canonical-src="https://img.shields.io/github/license/feiyu563/PrometheusAlert.svg" style="max-width:100%;">  <img src="https://camo.githubusercontent.com/f817085beb3888780b392731268f4690b3e41869/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f66656979753536332f70726f6d6574686575732d616c6572742e737667" alt="docker" data-canonical-src="https://img.shields.io/docker/pulls/feiyu563/prometheus-alert.svg" style="max-width:100%;"></p>
+		<p>PrometheusAlert是开源的运维告警中心消息转发系统</p>
+		<p>支持主流的监控系统Prometheus、Zabbix，日志系统Graylog2，Graylog3和数据可视化系统Grafana发出的预警消息</p>
+		<p>支持将收到的这些消息发送到钉钉，微信，腾讯短信，腾讯电话，阿里云短信，阿里云电话，华为短信等。</p>
+		<img src="img/it.png">
+		<p>PrometheusAlert具备如下特性：</p>
+		<p>支持多种消息来源，目前主要有Prometheus，Zabbix，Graylog2，Graylog3，Grafana。</p>
+		<p>支持多种类型的发送目标，支持钉钉，微信，腾讯短信，腾讯语音，阿里云短信，阿里云语音，华为短信。</p>
+		<p>针对Prometheus增加了告警级别，并且支持按照不同级别发送消息到不同目标对象。</p>
+		<p>简化Prometheus分组配置，支持按照具体消息发送到单个或多个接收方。</p>
+		<p>增加手机号码配置项和号码自动轮询配置，可固定发送给单一个人告警信息，也可以通过自动轮询的方式发送到多个人员且支持按照不同日期发送到不同人员。</p>
+		<p>增加Dashboard</p>
+		<p>增加代理支持</p>
+		<p><img src="img/logo.png" style="width: 32px;height: 32px;">   Prometheus Alert 全家桶   <svg class="octicon octicon-mark-github v-align-middle" height="30" viewBox="0 0 16 16" version="1.1" width="30" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></p>
 	</div>
 </div>
 <script src="js/jquery-1.9.0.min.js"></script>
@@ -38,8 +48,7 @@
 </script>
 
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>随随便便弄弄</p>
-<p>首页：<a href="https://feiyu563.github.io" target="_blank">B£倾.心的博客</a></p>
+
 </div>
 </body>
 </html>

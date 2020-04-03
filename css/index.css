@@ -129,11 +129,11 @@ body {
 	opacity: .8;
 }
 
-.btn-blue {
-	background: #00b7fb;
+.btn-white {
+	background: black;
 }
-.btn-blue:hover{
-    background: red;
+.btn-white:hover{
+    background: gray;
 }
 .btn-green {
 	background: #338f3c;
