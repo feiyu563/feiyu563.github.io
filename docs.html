@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="static/img/prometheus-ico.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/css/docs.css" rel="stylesheet" />
+  <style>
+	  #myBtn {
+	  display: none;
+	  position: fixed;
+	  right: 5px;
+	  top: 70%;
+	  z-index: 99;
+	  border: none;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 12px;
+	  border-radius: 18px;
+	  background-color:rgba(255,255,255,.15);
+	  border-color:#4cae4c;
+	  }
+	  #myBtn:hover {
+	  background-color:#f9f9f9;
+	  border-color:#eea236;
+	  }
+  </style>
+  <title>PrometheusAlert</title>
+</head>
+
+<body>
+<div class="navbar navbar-static-top bs-docs-nav">
+  <div class="container">
+  <a class="navbar-brand" href="#">
+    <img alt="Brand" width="20" height="20" src="static/img/prometheus-ico.png">
+  </a>
+  <a class="navbar-brand"  href="https://github.com/feiyu563/PrometheusAlert">PrometheusAlert</a>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="index.html">Index</a></li>
+      <li role="presentation" class="active"><a href="docs.html">Docs</a></li>
+      <li role="presentation"><a href="https://github.com/feiyu563/PrometheusAlert">Github</a></li>
+    </ul>
+  </div>
+</div>
+        <div class="bs-docs-header">
+            <div class="container">
+                    <label class="col-sm-2">Docs</label>
+			</div>
+        </div>
+            <div class="container">
+				<div class="page-header">
+
+				<div class="form-group" style="text-align:center">
+				<label>PrometheusAlert新手入门</label>
+				</div>
+
+				</div>
+            </div>
+		<div class="container">
+		<div class="page-header">
+            <ul>
+            <li>[PrometheusAlert配置]
+            <ul>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/install.md">安装部署PrometheusAlert</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/restful.md">PrometheusAlert接口说明</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/setup.md">PrometheusAlert配置文件说明</a>
+            <ul>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/other.md">其他配置</a></li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            <li>[告警源配置]
+            <ul>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/prometheus.md">Prometheus配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/graylog.md">graylog配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/grafana.md">grafana配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/zabbix.md">zabbix配置</a></li>
+            </ul>
+            </li>
+            <li>[告警接收目标配置]
+            <ul>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/dingding.md">钉钉告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/feishu.md">飞书告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/wechat.md">企业微信告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/aliyun.md">阿里云短信和电话告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/tx.md">腾讯云短信和电话告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/rly.md">容联云电话告警配置</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/blob/master/doc/readme/hw.md">华为云短信配置</a></li>
+            </ul>
+            </li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/releases">PrometheusAlert版本更新说明</a></li>
+            <li><a href="https://github.com/feiyu563/PrometheusAlert/wiki/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E3%80%90PrometheusAlert%E3%80%91%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91">如何对PrometheusAlert进行二次开发</a></li>
+            </ul>
+			<!--<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>名称</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<th>1</th>
+						<th>钉钉</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="dd">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>2</th>
+						<th>企业微信</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="wx">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>3</th>
+						<th>飞书</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="fs">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>4</th>
+						<th>腾讯云语音电话</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="txdh">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>5</th>
+						<th>腾讯云短信</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="txdx">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>6</th>
+						<th>阿里云语音电话</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="alydh">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>7</th>
+						<th>阿里云短信</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="alydx">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>8</th>
+						<th>容联云语音电话</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="rlydh">告警测试</button></th>
+					</tr>
+
+					<tr>
+						<th>9</th>
+						<th>华为云短信</th>
+						<th><button class="btn btn-primary" data-toggle='modal' id="hwdx">告警测试</button></th>
+					</tr>
+
+				</tbody>
+			</table>-->
+			</div>
+		</div>
+<div class="page-header">
+<div class="container text-center"> 
+<script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function(){
+         $(".btn").click(function(){
+           $.post("/alerttest",{mtype:$(this).attr("id")},function(result){
+             alert(result);
+             });
+          });
+       })
+    </script>
+</div>
+</div>
+<script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<div class="container">
+	<button onclick="topFunction()" id="myBtn"><span class="glyphicon glyphicon-plane"></span><p>返回顶部</p></button>
+	<script>
+	// 当网页向下滑动 20px 出现"返回顶部" 按钮
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {console.log(121);
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	document.getElementById("myBtn").style.display = "block";
+	} else {
+	document.getElementById("myBtn").style.display = "none";
+	}
+	}
+
+	// 点击按钮，返回顶部
+	function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+	}
+	</script>
+	
+</div>
+
+<div class="bs-docs-footer">
+
+	<div class="container">
+		
+		<p>Designed and built with all the love in the world by jikun.zhang</p>
+
+		<p>PrometheusAlert</p>
+
+	  </div>
+</div>
+
+</body>
+</html>

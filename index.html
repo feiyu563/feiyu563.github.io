@@ -1,72 +1,126 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Prometheus Alert 全家桶</title>
+  <link rel="shortcut icon" href="static/img/prometheus-ico.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/css/docs.css" rel="stylesheet" />
+  <style>
+	  #myBtn {
+	  display: none;
+	  position: fixed;
+	  right: 5px;
+	  top: 70%;
+	  z-index: 99;
+	  border: none;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 12px;
+	  border-radius: 18px;
+	  background-color:rgba(255,255,255,.15);
+	  border-color:#4cae4c;
+	  }
+	  #myBtn:hover {
+	  background-color:#f9f9f9;
+	  border-color:#eea236;
+	  }
+  </style>
+<div class="navbar navbar-static-top bs-docs-nav">
+  <div class="container">
+  <a class="navbar-brand" href="#">
+    <img alt="Brand" width="20" height="20" src="static/img/prometheus-ico.png">
+  </a>
+  <a class="navbar-brand"  href="https://github.com/feiyu563/PrometheusAlert">PrometheusAlert</a>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="index.html">Index</a></li>
+      <li role="presentation"><a href="docs.html">Docs</a></li>
+      <li role="presentation"><a href="https://github.com/feiyu563/PrometheusAlert">Github</a></li>
 
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<link rel="stylesheet" type="text/css" href="css/animate.css" />
-
+    </ul>
+  </div>
+</div>
+	<style>
+		#p2{
+			overflow:hidden;
+			text-overflow:ellipsis; 
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+	</style>
+	<title>PrometheusAlert</title>
 </head>
+
 <body>
 
-<div class="g-header">
-	<img width="250" class="logo wow bounceInLeft" data-wow-delay="0" src="img/logo-hlb.png" />
-	<div class="cloud1"></div>
-	<div class="cloud2"></div>			
-</div>
-<div class="g-mid">
-	<div class="car " data-wow-delay=".1s"></div>
-</div>
-<div class="g-footer">
-	<h2>Welcome to Prometheus Alert System</h2>
-    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-      <button class="btn btn-white wow bounceInDown" data-wow-delay=".8s" onclick="window.location.href='https://github.com/feiyu563/PrometheusAlert'"><img src="img/logo.png" style="vertical-align: middle; margin-top: -1px;width: 30PX;height: 30px;"> Docs</button>
-    </div>
-	<div class="copyright wow fadeIn" data-wow-delay="1s">
-
-       <article class="markdown-body entry-content" itemprop="text">
-       <p><a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/db02820d08ed4e37995561076cfccf9898c2c16b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f617574686f722d6a696b756e2e7a68616e672d626c756576696f6c65742e737667"><img src="https://camo.githubusercontent.com/db02820d08ed4e37995561076cfccf9898c2c16b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f617574686f722d6a696b756e2e7a68616e672d626c756576696f6c65742e737667" alt="author" data-canonical-src="https://img.shields.io/badge/author-jikun.zhang-blueviolet.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/d93aa0f6a3bc63af226dd2c147f03b62f358d2ed/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f66656979753536332f50726f6d657468657573416c6572742e737667"><img src="https://camo.githubusercontent.com/d93aa0f6a3bc63af226dd2c147f03b62f358d2ed/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f66656979753536332f50726f6d657468657573416c6572742e737667" alt="license" data-canonical-src="https://img.shields.io/github/license/feiyu563/PrometheusAlert.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/70ab8c754b506c6c2f463dad4693bc2a45d5df24/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6173742d636f6d6d69742f66656979753536332f50726f6d657468657573416c6572742e737667"><img src="https://camo.githubusercontent.com/70ab8c754b506c6c2f463dad4693bc2a45d5df24/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6173742d636f6d6d69742f66656979753536332f50726f6d657468657573416c6572742e737667" alt="last commit" data-canonical-src="https://img.shields.io/github/last-commit/feiyu563/PrometheusAlert.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/34b3a5b12dafe9a2633e192d4e893f93cd78e1ac/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f66656979753536332f50726f6d657468657573416c6572742e737667"><img src="https://camo.githubusercontent.com/34b3a5b12dafe9a2633e192d4e893f93cd78e1ac/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f66656979753536332f50726f6d657468657573416c6572742e737667" alt="issues" data-canonical-src="https://img.shields.io/github/issues/feiyu563/PrometheusAlert.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b38e6cbec659717a8903d30083b33995fa2efe06/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f66656979753536332f50726f6d657468657573416c6572742e737667"><img src="https://camo.githubusercontent.com/b38e6cbec659717a8903d30083b33995fa2efe06/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f66656979753536332f50726f6d657468657573416c6572742e737667" alt="stars" data-canonical-src="https://img.shields.io/github/stars/feiyu563/PrometheusAlert.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/9bce09b4384a0cd67b470c0520825b4b80def665/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f666f726b732f66656979753536332f50726f6d657468657573416c6572742e737667"><img src="https://camo.githubusercontent.com/9bce09b4384a0cd67b470c0520825b4b80def665/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f666f726b732f66656979753536332f50726f6d657468657573416c6572742e737667" alt="forks" data-canonical-src="https://img.shields.io/github/forks/feiyu563/PrometheusAlert.svg" style="max-width:100%;"></a>
-       <a href="https://hub.docker.com/r/feiyu563/prometheus-alert" rel="nofollow"><img src="https://camo.githubusercontent.com/f817085beb3888780b392731268f4690b3e41869/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f66656979753536332f70726f6d6574686575732d616c6572742e737667" alt="docker" data-canonical-src="https://img.shields.io/docker/pulls/feiyu563/prometheus-alert.svg" style="max-width:100%;"></a></p>
-       <p><a href="/feiyu563/PrometheusAlert/blob/master"><img src="https://camo.githubusercontent.com/6dc26c0eea5a6473fda5f3aee7964639837069a4/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d476f2d677265656e2e737667" alt="Travis" data-canonical-src="https://img.shields.io/badge/language-Go-green.svg" style="max-width:100%;"></a>
-       <a href="/feiyu563/PrometheusAlert/blob/master"><img src="https://camo.githubusercontent.com/ebf0ef3d6637cdcef86a42266c1358c5861c9517/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4a6176615363726970742d79656c6c6f772e737667" alt="Travis" data-canonical-src="https://img.shields.io/badge/language-JavaScript-yellow.svg" style="max-width:100%;"></a>
-       <a href="/feiyu563/PrometheusAlert/blob/master"><img src="https://camo.githubusercontent.com/250833d08fad86a9053cabf9c145f86e0521710e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d5368656c6c2d626c75652e737667" alt="Travis" data-canonical-src="https://img.shields.io/badge/language-Shell-blue.svg" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b1c33fc91b5a1b547cd23407563d2fc862f24bf9/68747470733a2f2f76697369746f722d636f756e742d62616467652e6865726f6b756170702e636f6d2f746f74616c2e7376673f7265706f5f69643d50726f6d657468657573416c6572742e50726f6d657468657573416c657274"><img src="https://camo.githubusercontent.com/b1c33fc91b5a1b547cd23407563d2fc862f24bf9/68747470733a2f2f76697369746f722d636f756e742d62616467652e6865726f6b756170702e636f6d2f746f74616c2e7376673f7265706f5f69643d50726f6d657468657573416c6572742e50726f6d657468657573416c657274" alt="历史共访问次数" data-canonical-src="https://visitor-count-badge.herokuapp.com/total.svg?repo_id=PrometheusAlert.PrometheusAlert" style="max-width:100%;"></a>
-       <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/85d70401d20f155096484402778646761cccaa1f/68747470733a2f2f76697369746f722d636f756e742d62616467652e6865726f6b756170702e636f6d2f746f6461792e7376673f7265706f5f69643d50726f6d657468657573416c6572742e50726f6d657468657573416c657274"><img src="https://camo.githubusercontent.com/85d70401d20f155096484402778646761cccaa1f/68747470733a2f2f76697369746f722d636f756e742d62616467652e6865726f6b756170702e636f6d2f746f6461792e7376673f7265706f5f69643d50726f6d657468657573416c6572742e50726f6d657468657573416c657274" alt="今天被访问次数" data-canonical-src="https://visitor-count-badge.herokuapp.com/today.svg?repo_id=PrometheusAlert.PrometheusAlert" style="max-width:100%;"></a></p>
-       
-	 <table border="0" style="width: 80%;margin:auto;text-shadow: 0px 1px 2px #ddd;">
-       <tr>
-         <td><p>  PrometheusAlert是开源的运维告警中心消息转发系统，支持主流的监控系统Prometheus、Zabbix，日志系统Graylog2，Graylog3和数据可视化系统Grafana发出的预警消息，支持将收到的这些消息发送到钉钉，微信，腾讯短信，腾讯电话，阿里云短信，阿里云电话，华为短信等。</p></td>
-       </tr>
-       <tr>
-         <td><p></p></td>
-       </tr>
-       <tr>
-         <td><p><img src="img/dashboard.png" alt="dashboard" style="max-width:70%;"></p></td>
-       </tr>
-       <tr>
-         <td><p><img src="img/it.png" alt="it" style="max-width:70%;"></p></td>
-       </tr>
-     </table>
-	   
-       </article>
-
-	<p><img src="img/logo.png" style="width: 34px;height: 34px;"></p>
+<div class="bs-docs-header">
+	<div class="container">
+			<label class="col-sm-2">PrometheusAlert</label>
 	</div>
 </div>
-<script src="js/jquery-1.9.0.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script>
-	if(!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
-		new WOW().init();
-	};
+  <div class="container">
 
-</script>
+	<div class="page-header">
+		<h4 class="text-muted"><a target="_blank" rel="noopener noreferrer" href="https://github.com/feiyu563/PrometheusAlert">PrometheusAlert全家桶</a></h4>
+	</div>
+	
+  </div>
+<div class="page-header">
+<div class="container text-center">
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/feiyu563/PrometheusAlert"><img src="static/img/it.png" alt="it" style="max-width:50%;"></a></p>
+<hr>
+</div>
+<div class="container">
+<p>如果这个项目能为您带来帮助，我将感到非常荣幸！同时非常欢迎您加入PrometheusAlert全家桶的微信群一起探讨关于PrometheusAlert新一期的开发计划。</p>
+<hr>
+<p>PrometheusAlert的成长离不开所有爱好运维和开发的朋友们的支持！如果您也对这个项目感兴趣，请点击一下 Star 以示鼓励，谢谢</p>
+<hr>
+<p>PrometheusAlert是开源的运维告警中心消息转发系统，支持主流的监控系统Prometheus、Zabbix，日志系统Graylog2，Graylog3和数据可视化系统Grafana发出的预警消息，支持将收到的这些消息发送到钉钉，微信，飞书，腾讯短信，腾讯电话，阿里云短信，阿里云电话，华为短信，容联云电话等。</p>
+</div>
+<hr>
+<div class="container text-center">
+<img alt="Brand" width="120" height="120" src="static/img/wx.png">
+
+
+
+</div>
+</div>
+<script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<div class="container">
+	<button onclick="topFunction()" id="myBtn"><span class="glyphicon glyphicon-plane"></span><p>返回顶部</p></button>
+	<script>
+	// 当网页向下滑动 20px 出现"返回顶部" 按钮
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {console.log(121);
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	document.getElementById("myBtn").style.display = "block";
+	} else {
+	document.getElementById("myBtn").style.display = "none";
+	}
+	}
+
+	// 点击按钮，返回顶部
+	function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+	}
+	</script>
+	
+</div>
+
+<div class="bs-docs-footer">
+
+	<div class="container">
+		
+		<p>Designed and built with all the love in the world by jikun.zhang</p>
+
+		<p>PrometheusAlert</p>
+
+	  </div>
+</div>
+
 </body>
 </html>
