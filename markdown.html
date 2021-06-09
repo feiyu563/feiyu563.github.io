@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="static/img/prometheus-ico.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/css/docs.css" rel="stylesheet" />
+  <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="static/js/marked.min.js"></script>
+  <style>
+	  #myBtn {
+	  display: none;
+	  position: fixed;
+	  right: 5px;
+	  top: 70%;
+	  z-index: 99;
+	  border: none;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 12px;
+	  border-radius: 18px;
+	  background-color:rgba(255,255,255,.15);
+	  border-color:#4cae4c;
+	  }
+	  #myBtn:hover {
+	  background-color:#f9f9f9;
+	  border-color:#eea236;
+	  }
+  </style>
+<div class="navbar navbar-static-top bs-docs-nav">
+  <div class="container">
+  <a class="navbar-brand" href="#">
+    <img alt="Brand" width="20" height="20" src="static/img/prometheus-ico.png">
+  </a>
+  <a class="navbar-brand"  href="https://github.com/feiyu563/PrometheusAlert">PrometheusAlert</a>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="index.html">Index</a></li>
+      <li role="presentation" class="active"><a href="markdown.html">MarkDownTest</a></li>
+      <li role="presentation"><a href="https://feiyu563.gitbook.io/prometheusalert/">Docs</a></li>
+      <li role="presentation"><a href="https://github.com/feiyu563/PrometheusAlert">Github</a></li>
+      <li role="presentation"><a href="https://gitee.com/feiyu563/PrometheusAlert">Gitee</a></li>
+
+    </ul>
+  </div>
+</div>
+	<style>
+		#p2{
+			overflow:hidden;
+			text-overflow:ellipsis; 
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+	</style>
+	<title>PrometheusAlert</title>
+</head>
+
+<body>
+
+	<div class="bs-docs-header">
+		<div class="container">
+				<label class="col-sm-2">MarkDown测试</label>
+		</div>
+	</div>
+	<div class="container">
+		<div class="bs-example" >
+			<label>*MarkDown内容:</label>
+			<br />
+			<textarea id="content" name="content" cols="30" rows="10" class="form-control" placeholder="自定义Markdown内容文本" onkeyup=showHtml()>
+[Prometheus故障恢复信息](https://prometheus.com)
+
+**[测试告警消息Markdown](https://alertmanager.com)**
+
+`告警级别:`严重
+
+`开始时间:`2021-05-27T12:28:37.83Z
+
+`结束时间:`2021-05-28T00:39:07.83Z
+
+`故障主机IP:`127.0.0.1:80
+
+**Too Many Alert Message PrometheusAlert**
+			</textarea>
+		</div>
+	</div>
+	<div class="container">
+		<label>显示效果:</label>
+		<div id='MarkdownHtml' class="bs-example"></div>
+		<script type="text/javascript">
+			$(function () {
+				showHtml();
+			})
+			function showHtml(){
+				$("#MarkdownHtml").html(marked($("#content").val()));
+			};
+		</script>
+	</div>
+<div class="container">
+	<button onclick="topFunction()" id="myBtn"><span class="glyphicon glyphicon-plane"></span><p>返回顶部</p></button>
+	<script>
+	
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {console.log(121);
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	document.getElementById("myBtn").style.display = "block";
+	} else {
+	document.getElementById("myBtn").style.display = "none";
+	}
+	}
+
+	
+	function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+	}
+	</script>
+	
+</div>
+
+<div class="bs-docs-footer">
+
+	<div class="container">
+		
+		<p>Designed and built with all the love in the world by jikun.zhang</p>
+
+		<p>PrometheusAlert</p>
+
+	  </div>
+</div>
+
+</body>
+</html>
